@@ -8,7 +8,7 @@ dcl-s jsonstring varchar(1000);
 
 // Options for SQL precompiler.
 exec sql
-    set option commit = *none;
+    set option commit = *none; 
 
 clear outfile;
 outfile_name = %trim(path);
