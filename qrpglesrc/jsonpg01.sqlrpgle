@@ -17,9 +17,13 @@ outfile_fo = sqfcrt;
 
 exec sql
     select
-       json_object ('Customers' value json_arrayagg (
-       json_object ('Customer_ID' value customer_id,
-                    'Customer_Description' value customer_description)))
+        json_object (
+            'Customers' value json_arrayagg (
+            json_object (   'Customer_ID' value customer_id,
+                            'Customer_Description' value customer_description
+                        )
+            )        
+        )
     into :jsonstring
     from clv1.customers;
 
